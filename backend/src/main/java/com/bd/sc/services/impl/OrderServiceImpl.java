@@ -40,7 +40,7 @@ public class OrderServiceImpl implements IOrderService {
     public Optional<Order> findById(Long id) {
 
         Optional<Order> order = Optional.ofNullable(orderDao.findById(id));
-        if (!order.isEmpty()){
+        if (order!=null){
             for (OrderDetail detail : order.get().getOrderDetail()) {
 
                 headers.put("Content-Type","application/json; charset=UTF-8");
